@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO packages (name, price, durationDays, maxGroups, maxPostsPerDay, features, isActive) VALUES ('Pro Plan', '37.00', 30, 999999, 999999, '[\"Unlimited Facebook groups\",\"Unlimited scheduled posts\",\"Spintax content variation\",\"Advanced scheduling options\",\"Analytics & performance tracking\",\"Chrome extension included\",\"Priority support\"]', 1);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user T7NM9uRFZ9JAUU6.89a978b42d0c --database 7HQYWuZhbPoPRHRenUq7Ut --execute INSERT INTO packages (name, price, durationDays, maxGroups, maxPostsPerDay, features, isActive) VALUES ('Pro Plan', '37.00', 30, 999999, 999999, '[\"Unlimited Facebook groups\",\"Unlimited scheduled posts\",\"Spintax content variation\",\"Advanced scheduling options\",\"Analytics & performance tracking\",\"Chrome extension included\",\"Priority support\"]', 1);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1565
+}

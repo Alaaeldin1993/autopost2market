@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO admins (email, passwordHash, name) VALUES ('admin@autopost2market.com', 'ee58cbf41945e8116fd00486ac2ae685:7aaa62f9f28676913986256bf91cb4ceba86307b9397bf04470dde700ba5084de435b22e1d1c705a73fb97f0f08535834e460ca9e44de0bb247320d23246a0a2', 'System Admin');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user T7NM9uRFZ9JAUU6.89a978b42d0c --database 7HQYWuZhbPoPRHRenUq7Ut --execute INSERT INTO admins (email, passwordHash, name) VALUES ('admin@autopost2market.com', 'ee58cbf41945e8116fd00486ac2ae685:7aaa62f9f28676913986256bf91cb4ceba86307b9397bf04470dde700ba5084de435b22e1d1c705a73fb97f0f08535834e460ca9e44de0bb247320d23246a0a2', 'System Admin');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2177
+}
