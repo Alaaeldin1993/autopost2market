@@ -10,12 +10,16 @@ import Groups from "./pages/Groups";
 import Posts from "./pages/Posts";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/dashboard/groups" component={Groups} />
       <Route path="/dashboard/posts" component={Posts} />
