@@ -1,8 +1,7 @@
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import type { User, Admin } from "../../drizzle/schema";
-import { sdk } from "./sdk";
 import { verifyToken, extractTokenFromHeader } from "../auth-utils";
-import { getAdminById } from "../db";
+import { getAdminById, getUserById } from "../db";
 
 export type TrpcContext = {
   req: CreateExpressContextOptions["req"];
@@ -17,22 +16,18 @@ export async function createContext(
   let user: User | null = null;
   let admin: Admin | null = null;
 
-  // Try Manus OAuth authentication first
-  try {
-    user = await sdk.authenticateRequest(opts.req);
-  } catch (error) {
-    // Authentication is optional for public procedures.
-    user = null;
-  }
-
-  // Try admin JWT authentication from Authorization header
+  // Try JWT authentication from Authorization header
   const authHeader = opts.req.headers.authorization;
   if (authHeader) {
     const token = extractTokenFromHeader(authHeader);
     if (token) {
       const payload = await verifyToken(token);
-      if (payload && payload.type === 'admin' && payload.adminId) {
-        admin = await getAdminById(payload.adminId) || null;
+      if (payload) {
+        if (payload.type === 'admin' && payload.adminId) {
+          admin = await getAdminById(payload.adminId) || null;
+        } else if (payload.type === 'user' && payload.userId) {
+          user = await getUserById(payload.userId) || null;
+        }
       }
     }
   }
